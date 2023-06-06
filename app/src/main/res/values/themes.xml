@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorPrimaryVariant">@color/black2</item>
     </style>
     <style name="Theme.TicTacToe" parent="Base.Theme.TicTacToe" />
 
@@ -13,7 +13,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/green1</item>
         <item name="colorPrimaryDark">@color/green3</item>
-        <item name="colorAccent">@color/green2</item>
+        <item name="colorPrimaryVariant">@color/green2</item>
     </style>
     <style name="GreenTheme.TicTacToe" parent="Green.Theme.TicTacToe" />
 </resources>
