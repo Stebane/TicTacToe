@@ -1,9 +1,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?colorPrimaryDark"
+    tools:context=".SettingsActivity">
 
-    <FrameLayout
-        android:id="@+id/settings"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="2dp"
+        android:columnCount="3"
+        android:rowCount="2">
+
+        <LinearLayout
+            android:id="@+id/blueThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/blue3"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/purpleThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/purple3"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/pinkThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/pink3"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/beigeThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/beige3"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/greenThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/green3"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/blackThemeButton"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="2dp"
+            android:background="@drawable/theme_button_background"
+            android:backgroundTint="@color/black"
+            android:orientation="horizontal" />
+    </GridLayout>
 </LinearLayout>

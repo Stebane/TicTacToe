@@ -1,40 +1,86 @@
 package com.example.tictactoe
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.PreferenceManager
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceFragmentCompat
 
 class SettingsActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
+    var sharedPref: SharedPreferences? = null
+    var editor: SharedPreferences.Editor? = null
+    var blueThemButton: LinearLayout? = null
+    var purpleThemButton: LinearLayout? = null
+    var pinkThemButton: LinearLayout? = null
+    var beigeThemButton: LinearLayout? = null
+    var greenThemButton: LinearLayout? = null
+    var blackThemButton: LinearLayout? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        PreferenceManager.getDefaultSharedPreferences(baseContext)
-            .registerOnSharedPreferenceChangeListener(this)
-        setAppTheme()
         super.onCreate(savedInstanceState)
+        sharedPref = getSharedPreferences("themePref", Context.MODE_PRIVATE)
+        editor = sharedPref?.edit()
+        val appTheme = sharedPref?.getString("themName", "DARK THEM")
+        val themRef = getThem(appTheme)
+        setTheme(themRef)
         setContentView(R.layout.settings_activity)
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.settings, SettingsFragment())
-                .commit()
-        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        blueThemButton = findViewById(R.id.blueThemeButton)
+        purpleThemButton = findViewById(R.id.purpleThemeButton)
+        pinkThemButton = findViewById(R.id.pinkThemeButton)
+        beigeThemButton = findViewById(R.id.beigeThemeButton)
+        greenThemButton = findViewById(R.id.greenThemeButton)
+        blackThemButton = findViewById(R.id.blackThemeButton)
+
+        blueThemButton?.setOnClickListener {
+            setAppTheme("BLUE THEME")
+            updateAppTheme()
+        }
+        purpleThemButton?.setOnClickListener {
+            setAppTheme("PURPLE THEME")
+            updateAppTheme()
+        }
+        pinkThemButton?.setOnClickListener {
+            setAppTheme("PINK THEME")
+            updateAppTheme()
+        }
+        beigeThemButton?.setOnClickListener {
+            setAppTheme("BEIGE THEME")
+            updateAppTheme()
+        }
+        greenThemButton?.setOnClickListener {
+            setAppTheme("GREEN THEME")
+            updateAppTheme()
+        }
+        blackThemButton?.setOnClickListener {
+            setAppTheme("DARK THEM")
+            updateAppTheme()
+        }
+
     }
 
-    class SettingsFragment : PreferenceFragmentCompat() {
-        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            setPreferencesFromResource(R.xml.root_preferences, rootKey)
+    private fun updateAppTheme() {
+        this.recreate()
+    }
+
+    private fun setAppTheme(themName: String) {
+        editor?.apply {
+            putString("themName", themName)
+            apply()
         }
     }
 
-    private fun setAppTheme() {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-        if (sharedPreferences.getString("color_option", "DARK THEME").equals("DARK THEME")) {
-            setTheme(R.style.Theme_TicTacToe)
-        } else {
-            setTheme(R.style.GreenTheme_TicTacToe)
+    private fun getThem(themeName: String?): Int {
+        return when (themeName) {
+            "BEIGE THEME" -> R.style.BeigeTheme_TicTacToe
+            "GREEN THEME" -> R.style.GreenTheme_TicTacToe
+            "BLUE THEME" -> R.style.BlueTheme_TicTacToe
+            "PINK THEME" -> R.style.PinkTheme_TicTacToe
+            "PURPLE THEME" -> R.style.PurpleTheme_TicTacToe
+            else -> R.style.Theme_TicTacToe
         }
     }
 

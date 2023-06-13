@@ -16,4 +16,40 @@
         <item name="colorPrimaryVariant">@color/green2</item>
     </style>
     <style name="GreenTheme.TicTacToe" parent="Green.Theme.TicTacToe" />
+
+    <!-- Blue application theme. -->
+    <style name="Blue.Theme.TicTacToe" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/beige1</item>
+        <item name="colorPrimaryDark">@color/blue3</item>
+        <item name="colorPrimaryVariant">@color/blue2</item>
+    </style>
+    <style name="BlueTheme.TicTacToe" parent="Blue.Theme.TicTacToe" />
+
+    <!-- Pink application theme. -->
+    <style name="Pink.Theme.TicTacToe" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/pink1</item>
+        <item name="colorPrimaryDark">@color/pink3</item>
+        <item name="colorPrimaryVariant">@color/pink2</item>
+    </style>
+    <style name="PinkTheme.TicTacToe" parent="Pink.Theme.TicTacToe" />
+
+    <!-- Purple application theme. -->
+    <style name="Purple.Theme.TicTacToe" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/purple1</item>
+        <item name="colorPrimaryDark">@color/purple3</item>
+        <item name="colorPrimaryVariant">@color/purple2</item>
+    </style>
+    <style name="PurpleTheme.TicTacToe" parent="Purple.Theme.TicTacToe" />
+
+    <!-- Beige application theme. -->
+    <style name="Beige.Theme.TicTacToe" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/beige1</item>
+        <item name="colorPrimaryDark">@color/beige3</item>
+        <item name="colorPrimaryVariant">@color/beige2</item>
+    </style>
+    <style name="BeigeTheme.TicTacToe" parent="Beige.Theme.TicTacToe" />
 </resources>

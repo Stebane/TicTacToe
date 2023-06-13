@@ -1,5 +1,6 @@
 package com.example.tictactoe
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,9 @@ import com.example.tictactoe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    var sharedPref: SharedPreferences? = null
+    var editor: SharedPreferences.Editor? = null
+
     private lateinit var binding: ActivityMainBinding
     val viewModel: AppViewModel by viewModels()
     var user = 1
@@ -21,7 +25,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setAppTheme()
+
+        sharedPref = getSharedPreferences("themePref", Context.MODE_PRIVATE)
+        editor = sharedPref?.edit()
+        val appTheme = sharedPref?.getString("themName", "DARK THEM")
+        val themRef = getThem(appTheme)
+        setTheme(themRef)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -95,6 +104,17 @@ class MainActivity : AppCompatActivity() {
             setTheme(R.style.Theme_TicTacToe)
         } else {
             setTheme(R.style.GreenTheme_TicTacToe)
+        }
+    }
+
+    private fun getThem(themeName: String?): Int {
+        return when (themeName) {
+            "BEIGE THEME" -> R.style.BeigeTheme_TicTacToe
+            "GREEN THEME" -> R.style.GreenTheme_TicTacToe
+            "BLUE THEME" -> R.style.BlueTheme_TicTacToe
+            "PINK THEME" -> R.style.PinkTheme_TicTacToe
+            "PURPLE THEME" -> R.style.PurpleTheme_TicTacToe
+            else -> R.style.Theme_TicTacToe
         }
     }
 }
